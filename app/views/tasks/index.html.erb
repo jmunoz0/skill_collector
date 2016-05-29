@@ -17,8 +17,8 @@
 
       <% @tasks.each do |task| %>
       <tr>
-        <td><%= task.skill_id %></td>
-        <td><%= task.role_id %></td>
+        <td><%= task.skill.name %></td>
+        <td><%= task.role.title %></td>
         <td><%= task.name %></td>
         <td>
           <a href="/tasks/<%= task.id %>" class="btn btn-primary">Show</a>
