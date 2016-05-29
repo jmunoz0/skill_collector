@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @task.errors.any? %>
+  <% @task.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Task #<%= @task.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_task/<%= @task.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for skill_id -->
+      <div class="form-group">
+        <label for="skill_id" class="control-label">
+          Skill
+        </label>
+
+        <input type="text" id="skill_id" name="skill_id" placeholder="Skill" class="form-control" value="<%= @task.skill_id %>">
+      </div>
+
+      <!-- Label and input for role_id -->
+      <div class="form-group">
+        <label for="role_id" class="control-label">
+          Role
+        </label>
+
+        <input type="text" id="role_id" name="role_id" placeholder="Role" class="form-control" value="<%= @task.role_id %>">
+      </div>
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @task.name %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Task
+      </button>
+      or
+      <a href="/tasks/<%= @task.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
