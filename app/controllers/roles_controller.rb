@@ -1,11 +1,11 @@
 class RolesController < ApplicationController
   def index
-    @roles = Role.all
+    @roles =Role.all
   end
 
   def show
     @role = Role.find(params[:id])
-    
+
 
   require "unirest"
   require 'active_support/core_ext/hash'

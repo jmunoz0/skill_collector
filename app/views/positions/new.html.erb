@@ -21,7 +21,7 @@
       <!-- Label and input for user_id -->
       <div class="form-group">
         <label for="user_id" class="control-label">
-          User
+
         </label>
 
         <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @position.user_id %>">
@@ -33,9 +33,8 @@
           Role
         </label>
 
-        <input type="text" id="role_id" name="role_id" placeholder="Role" class="form-control" value="<%= @position.role_id %>">
-      </div>
-
+        <%= select_tag(:role_id, options_from_collection_for_select(Role.all, :id, :title, @position.role_id), :class => "form-control")%>      </div>
+        
       <!-- Label and input for name -->
       <div class="form-group">
         <label for="name" class="control-label">

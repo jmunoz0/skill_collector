@@ -17,7 +17,6 @@ class Role < ActiveRecord::Base
         skills.each do |i|
           skill=Skill.new
           skill.name=i
-
           skill.save
           task=Task.new
           task.role_id=role.id
@@ -32,6 +31,7 @@ class Role < ActiveRecord::Base
   end
 
   has_many(:tasks, :class_name=>"Task", :foreign_key=>"role_id")
-
+  has_many :positions
+  
 
 end

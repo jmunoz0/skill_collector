@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "roles#index"
+  root "positions#index"
 
 
   # Routes for the Position resource:

@@ -1,6 +1,7 @@
 class PositionsController < ApplicationController
   def index
     @positions = Position.all
+    @roles=Role.all
   end
 
   def show
@@ -22,6 +23,7 @@ class PositionsController < ApplicationController
     else
       render 'new'
     end
+
   end
 
   def edit

@@ -14,19 +14,32 @@
         <th>Name</th>
         <th>Actions</th>
       </tr>
-
-      <% @positions.each do |position| %>
+      <%=current_user.email%>
+            <% @positions.each do |position| %>
       <tr>
         <td><%= position.user_id %></td>
         <td><%= position.role_id %></td>
-        <td><%= position.name %></td>
+
+        <td><%= Role.find(position.role_id).title%></td>
+        <% x=Task.where({:role_id=>Role.find(position.role_id)})%>
+        <% x.each do |i| %>
+        <td><%= Skill.find(i.skill_id).name%>  </td>
+
+        <% end %>
         <td>
           <a href="/positions/<%= position.id %>" class="btn btn-primary">Show</a>
           <a href="/positions/<%= position.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_position/<%= position.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
         </td>
       </tr>
+      <tr>
+
+      </tr>
       <% end %>
+
+
+
+
     </table>
   </div>
 </div>
