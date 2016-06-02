@@ -1,0 +1,42 @@
+<div class="page-header">
+  <h1>
+    All my skills
+    <a href="/positions" class="btn btn-lg btn-success">Go Back My Profile</a>
+
+  </h1>
+
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+
+      <ul class="media-list">
+          <%@names=Array[]%>
+      <% @positions.each do |position| %>
+       <%x=Task.where({:role_id=>Role.find(position.role_id)})%>
+       <li class="media">
+         <div class="media-body">
+
+        <% x.each do |i| %>
+
+        <h6 class="media-heading">
+
+        <%@names.push(Skill.find(i.skill_id).name) unless @names.include?(Skill.find(i.skill_id).name)%></h6>
+
+      <% end %>
+
+      </div>
+      <% end %>
+      <div class="list-group">
+        <%sorted_names=@names.sort%>
+        <%sorted_names.each do |name|%>
+      <li>  <%=name%>
+      </li>
+      <%end%>
+      </div>
+
+      </div>
+      </li>
+    </ul>
+</div>
+</div>

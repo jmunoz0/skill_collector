@@ -18,6 +18,13 @@ Rails.application.routes.draw do
 
   # DELETE
   get "/delete_position/:id", :controller => "positions", :action => "destroy"
+
+  get "/all_skills", :controller => "positions", :action => "all_skills"
+  get "/role_interest", :controller => "positions", :action => "role_interest"
+  get "/compare_skill", :controller => "positions", :action => "compare_skill"
+
+
+
   #------------------------------
 
   # Routes for the Task resource:

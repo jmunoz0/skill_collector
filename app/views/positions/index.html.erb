@@ -2,7 +2,10 @@
   <h1>
     Positions
     <a href="/positions/new" class="btn btn-lg btn-success">New Position</a>
+    <a href="/all_skills" class="btn btn-lg btn-success">See all my skills</a>
+    <a href="/role_interest" class="btn btn-lg btn-success">Role of interest</a>
   </h1>
+
 </div>
 
 <div class="row">
@@ -15,12 +18,13 @@
         <th>Actions</th>
       </tr>
       <%=current_user.email%>
+
             <% @positions.each do |position| %>
       <tr>
         <td><%= position.user_id %></td>
         <td><%= position.role_id %></td>
 
-        <td><%= Role.find(position.role_id).title%></td>
+        <td><%=Role.find(position.role_id).title%></td>
         <% x=Task.where({:role_id=>Role.find(position.role_id)})%>
         <% x.each do |i| %>
         <td><%= Skill.find(i.skill_id).name%>  </td>

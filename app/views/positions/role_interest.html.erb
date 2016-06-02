@@ -1,0 +1,52 @@
+<div class="page-header">
+  <h1>
+    Skill Comparison
+
+  </h1>
+
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/compare_skill" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @position.user_id %>">
+      </div>
+
+      <!-- Label and input for role_id -->
+      <div class="form-group">
+        <label for="role_id" class="control-label">
+          Role
+        </label>
+
+        <%= select_tag(:role_id, options_from_collection_for_select(Role.all, :id, :title, @position.role_id), :class => "form-control")%>      </div>
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @position.name %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Position
+      </button>
+      or
+      <a href="/positions">Cancel</a>
+    </form>
+  </div>
+
+
+
+
+</div>

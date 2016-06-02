@@ -51,4 +51,23 @@ class PositionsController < ApplicationController
 
     redirect_to "/positions", :notice => "Position deleted."
   end
+
+  def all_skills
+    @positions=Position.where(:user_id=>current_user.id)
+
+  end
+
+  def role_interest
+  @position = Position.new
+  end
+
+  def compare_skill
+    @position = Position.new
+    @position.user_id = params[:user_id]
+    @position.role_id = params[:role_id]
+    @position.name = params[:name]
+    @positio.
+
+    redirect_to "/role_interest"
+  end
 end
