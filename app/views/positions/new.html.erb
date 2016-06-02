@@ -24,7 +24,7 @@
 
         </label>
 
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @position.user_id %>">
+        <input type="hidden" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%=current_user.id %>">
       </div>
 
       <!-- Label and input for role_id -->
@@ -34,16 +34,6 @@
         </label>
 
         <%= select_tag(:role_id, options_from_collection_for_select(Role.all, :id, :title, @position.role_id), :class => "form-control")%>      </div>
-        
-      <!-- Label and input for name -->
-      <div class="form-group">
-        <label for="name" class="control-label">
-          Name
-        </label>
-
-        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @position.name %>">
-      </div>
-
       <button class="btn btn-success">
         Create Position
       </button>

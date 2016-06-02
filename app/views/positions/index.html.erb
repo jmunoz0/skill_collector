@@ -9,41 +9,21 @@
 </div>
 
 <div class="row">
-  <div class="col-md-12">
-    <table class="table table-striped table-hover">
-      <tr>
-        <th>User</th>
-        <th>Role</th>
-        <th>Name</th>
-        <th>Actions</th>
-      </tr>
-      <%=current_user.email%>
+    <% @positions.each do |position| %>
+    <div class="col-md-6">
+      <div class="panel panel-default">
 
-            <% @positions.each do |position| %>
-      <tr>
-        <td><%= position.user_id %></td>
-        <td><%= position.role_id %></td>
-
-        <td><%=position.role.title%></td>
+        <div class="panel-heading">
+          <h3 class="panel-title"><%=position.role.title.singularize%></h3>
+        </div>
         <% x=position.role.tasks%>
         <% x.each do |i| %>
-        <td><%= i.skill.name%>  </td>
-
+        <div class="panel-body">
+          <%= i.skill.name%>
+        </div>
         <% end %>
-        <td>
-          <a href="/positions/<%= position.id %>" class="btn btn-primary">Show</a>
-          <a href="/positions/<%= position.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_position/<%= position.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
-        </td>
-      </tr>
-      <tr>
-
-      </tr>
-      <% end %>
-
-
-
-
-    </table>
+        <div class="panel-footer">  <a href="/delete_position/<%= position.id %>" class="btn btn-danger btn-block" rel="nofollow">Delete</a></div>
+      </div>
+      </div>
+        <% end %>
   </div>
-</div>
