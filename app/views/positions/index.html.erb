@@ -24,10 +24,10 @@
         <td><%= position.user_id %></td>
         <td><%= position.role_id %></td>
 
-        <td><%=Role.find(position.role_id).title%></td>
-        <% x=Task.where({:role_id=>Role.find(position.role_id)})%>
+        <td><%=position.role.title%></td>
+        <% x=position.role.tasks%>
         <% x.each do |i| %>
-        <td><%= Skill.find(i.skill_id).name%>  </td>
+        <td><%= i.skill.name%>  </td>
 
         <% end %>
         <td>
