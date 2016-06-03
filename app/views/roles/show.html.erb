@@ -13,7 +13,24 @@
       <dd><%= @role.code %></dd>
       <dt>Skills</dt>
       <dd><%=@activities%></dd>
+      <dt>Your skills</dt>
+      <dd>
+        <%@names=Array[]%>
+        <% @positions.each do |position| %>
+        <%x=position.role.tasks%>
+        <% x.each do |i| %>
+        <%@names.push(i.skill.name) unless @names.include?(i.skill.name)%>
+        <% end %>
+        <%end%>
+        <%=@names%>
+      </dd>
+      <dt>
+        Skills you're missing
 
+      </dt>
+      <dd>
+        <%=@activities-@names%>
+      </dd>
     </dl>
 
     <div class="btn-group btn-group-justified">

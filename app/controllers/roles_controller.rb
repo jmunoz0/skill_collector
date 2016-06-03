@@ -17,6 +17,7 @@ class RolesController < ApplicationController
   parsed_response = Hash.from_xml(response.body.gsub("\n", ""))
 
   @activities=parsed_response["detailed_work_activities"]["activity"]
+    @positions=current_user.positions
   end
 
   def new

@@ -54,6 +54,7 @@ class PositionsController < ApplicationController
 
   def all_skills
     @positions=Position.where(:user_id=>current_user.id)
+    @positions=current_user.positions
 
   end
 
@@ -66,7 +67,7 @@ class PositionsController < ApplicationController
     @position.user_id = params[:user_id]
     @position.role_id = params[:role_id]
     @position.name = params[:name]
-    @positio.
+
 
     redirect_to "/role_interest"
   end

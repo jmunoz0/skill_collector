@@ -69,7 +69,7 @@ Rails.application.routes.draw do
   # READ
   get "/roles", :controller => "roles", :action => "index"
   get "/roles/:id", :controller => "roles", :action => "show"
-
+  get "/compare", :controller => "roles", :action => "show"
   # UPDATE
   get "/roles/:id/edit", :controller => "roles", :action => "edit"
   post "/update_role/:id", :controller => "roles", :action => "update"

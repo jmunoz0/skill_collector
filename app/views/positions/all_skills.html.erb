@@ -8,6 +8,7 @@
 </div>
 
 <div class="row">
+  <div class="col-md-6">
   <div class="panel panel-default">
     <!-- Default panel contents -->
     <%@names=Array[]%>
@@ -17,7 +18,7 @@
     <%@names.push(i.skill.name) unless @names.include?(i.skill.name)%>
     <% end %>
     <%end%>
-    <div class="panel-heading"> You have <%=@names.count%> unique skills!</div>
+    <div class="panel-heading text-success"> You have <%=@names.count%> unique skills!</div>
 
 
     <!-- List group -->
