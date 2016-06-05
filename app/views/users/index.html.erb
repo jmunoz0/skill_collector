@@ -12,9 +12,13 @@
 
       <% @users.each do |user| %>
       <tr>
-        <td><a href="/users/<%= user.id %>">  <%= user.email %></a>
+        <%if user.id==current_user.id%>
+        <td><a href="/positions">  <%= user.username%></a>
         </td>
-
+        <%else%>
+        <td><a href="/users/<%= user.id %>">  <%= user.username%></a>
+        </td>
+        <%end%>
 
       </tr>
       <% end %>

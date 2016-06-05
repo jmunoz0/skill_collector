@@ -1,7 +1,7 @@
 <div class="page-header">
   <h1>
     All my skills
-    <a href="/positions" class="btn btn-lg btn-success">Go Back My Profile</a>
+    <a href="/positions" class="btn btn-lg btn-success">Go Back My Roles</a>
 
   </h1>
 
@@ -19,9 +19,6 @@
     <% end %>
     <%end%>
     <div class="panel-heading text-success"> You have <%=@names.count%> unique skills!</div>
-
-
-    <!-- List group -->
     <%sorted_names=@names.sort%>
     <%sorted_names.each do |name|%>
     <ul class="list-group">

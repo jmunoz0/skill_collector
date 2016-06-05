@@ -10,18 +10,18 @@ Rails.application.routes.draw do
 
   # READ
   get "/positions", :controller => "positions", :action => "index"
-  get "/positions/:id", :controller => "positions", :action => "show"
+  # get "/positions/:id", :controller => "positions", :action => "show"
 
   # UPDATE
-  get "/positions/:id/edit", :controller => "positions", :action => "edit"
-  post "/update_position/:id", :controller => "positions", :action => "update"
+  # get "/positions/:id/edit", :controller => "positions", :action => "edit"
+  # post "/update_position/:id", :controller => "positions", :action => "update"
 
   # DELETE
   get "/delete_position/:id", :controller => "positions", :action => "destroy"
 
   get "/all_skills", :controller => "positions", :action => "all_skills"
   get "/role_interest", :controller => "positions", :action => "role_interest"
-  get "/compare_skill", :controller => "positions", :action => "compare_skill"
+  # get "/compare_skill", :controller => "positions", :action => "compare_skill"
 
 
 

@@ -1,48 +1,88 @@
 <div class="page-header">
-  <h3>Role #<%= @role.id %></h3>
+  <h3>Skill comparisson
+    <a href="/positions" class="btn btn-primary">
+      Go Back to profile
+    </a>
+    <a href="/role_interest" class="btn btn-primary">
+      Compare vs. a different role
+    </a>
+  </h3>
+</div>
+<div >
+  <h4 class="text-center">To become an <%=@role.title.singularize%> you need to acquire the following skills:</h4>
+
 </div>
 
 <div class="row">
-  <div class="col-md-12">
-    <dl class="dl-horizontal">
-      <dt>Title</dt>
 
-      <dd><%= @role.title %></dd>
+<div class="table">
+<tr>
 
-      <dt>Code</dt>
-      <dd><%= @role.code %></dd>
-      <dt>Skills</dt>
-      <dd><%=@activities%></dd>
-      <dt>Your skills</dt>
-      <dd>
-        <%@names=Array[]%>
-        <% @positions.each do |position| %>
-        <%x=position.role.tasks%>
-        <% x.each do |i| %>
-        <%@names.push(i.skill.name) unless @names.include?(i.skill.name)%>
-        <% end %>
-        <%end%>
-        <%=@names%>
-      </dd>
-      <dt>
-        Skills you're missing
+<td>
 
-      </dt>
-      <dd>
-        <%=@activities-@names%>
-      </dd>
-    </dl>
-
-    <div class="btn-group btn-group-justified">
-      <a href="/roles" class="btn btn-primary">
-        Back
-      </a>
-      <a href="/roles/<%= @role.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_role/<%= @role.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
+  <div class="col-md-4">
+  <div class="panel panel-default text-center">
+    <div class="panel panel-heading">
+       <%=@role.title.singularize%> Skills
+      </div>
+      <%sorted_skills=@activities.sort%>
+      <%sorted_skills.each do |skill|%>
+      <ul class="list-group">
+        <li class="list-group-item"><%=skill%></li>
+      </ul>
+      <%end%>
     </div>
+    </div>
+</td>
+
+<td>
+
+  <div class="col-md-4">
+  <div class="panel panel-default text-center">
+    <div class="panel panel-heading">
+    Your skills
+       </div>
+    <!-- Default panel contents -->
+    <%@names=Array[]%>
+    <% @positions.each do |position| %>
+    <%x=position.role.tasks%>
+    <% x.each do |i| %>
+    <%@names.push(i.skill.name) unless @names.include?(i.skill.name)%>
+    <% end %>
+    <%end%>
+    <%sorted_names=@names.sort%>
+    <%sorted_names.each do |name|%>
+    <ul class="list-group">
+      <li class="list-group-item"><%=name%></li>
+    </ul>
+    <%end%>
   </div>
+</div>
+</td>
+
+  <td>
+<div class="col-md-4">
+<div class="panel panel-default text-center">
+  <div class="panel panel-heading">
+     Skills you're missing
+    </div>
+    <%missing_skills=(@activities-@names).sort%>
+    <%if missing_skills.count==0%>
+    <ul class="list-group">
+      <li class="list-group-item text-success text-center ">Congrats You Already Have All The Skills Needed For This Role!</li>
+    </ul>
+    <%else%>
+    <%missing_skills.each do |skill|%>
+    <ul class="list-group">
+      <li class="list-group-item"><%=skill%></li>
+    </ul>
+    <%end%>
+    <%end%>
+  </div>
+  </div>
+
+</td>
+
+  </div>
+  </tr>
 </div>

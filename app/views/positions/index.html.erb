@@ -1,15 +1,19 @@
 <div class="page-header">
   <h1>
-    Positions
-    <a href="/positions/new" class="btn btn-lg btn-success">New Position</a>
-    <a href="/all_skills" class="btn btn-lg btn-success">See all my skills</a>
-    <a href="/role_interest" class="btn btn-lg btn-success">Role of interest</a>
+    My Roles and Skills
+
+
+
+
+    <a href="/positions/new" class="btn btn-primary">New Role</a>
+    <a href="/all_skills" class="btn  btn-primary">See all my skills</a>
+    <a href="/role_interest" class="btn btn-primary">Skill Comparison</a>
   </h1>
 
 </div>
 
 <div class="row">
-    <% @positions.each do |position| %>
+    <% current_user.positions.each do |position| %>
     <div class="col-md-6">
       <div class="panel panel-default">
 
@@ -22,7 +26,7 @@
           <%= i.skill.name%>
         </div>
         <% end %>
-        <div class="panel-footer">  <a href="/delete_position/<%= position.id %>" class="btn btn-danger btn-block" rel="nofollow">Delete</a></div>
+        <div class="panel-footer">  <a href="/delete_position/<%= position.id %>" class="btn btn-danger btn-block" rel="nofollow"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div>
       </div>
       </div>
         <% end %>
