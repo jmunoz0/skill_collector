@@ -32,6 +32,8 @@ class Role < ActiveRecord::Base
 
   has_many(:tasks, :class_name=>"Task", :foreign_key=>"role_id")
   has_many :positions
-  
+
+  validates :title, :presence=>true
+  validates :id, :presence=>true
 
 end

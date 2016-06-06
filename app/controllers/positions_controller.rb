@@ -1,4 +1,6 @@
 class PositionsController < ApplicationController
+
+
   def index
     positions = Position.all
     @roles=Role.all
@@ -29,6 +31,8 @@ class PositionsController < ApplicationController
   def edit
     @position = Position.find(params[:id])
   end
+
+
 
   def update
     @position = Position.find(params[:id])
@@ -71,4 +75,6 @@ class PositionsController < ApplicationController
 
     redirect_to "/role_interest"
   end
+
+
 end
