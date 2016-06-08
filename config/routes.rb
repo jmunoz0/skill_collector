@@ -29,53 +29,53 @@ Rails.application.routes.draw do
 
   # Routes for the Task resource:
   # CREATE
-  get "/tasks/new", :controller => "tasks", :action => "new"
-  post "/create_task", :controller => "tasks", :action => "create"
-
-  # READ
-  get "/tasks", :controller => "tasks", :action => "index"
-  get "/tasks/:id", :controller => "tasks", :action => "show"
-
-  # UPDATE
-  get "/tasks/:id/edit", :controller => "tasks", :action => "edit"
-  post "/update_task/:id", :controller => "tasks", :action => "update"
-
-  # DELETE
-  get "/delete_task/:id", :controller => "tasks", :action => "destroy"
+  # get "/tasks/new", :controller => "tasks", :action => "new"
+  # post "/create_task", :controller => "tasks", :action => "create"
+  #
+  # # READ
+  # get "/tasks", :controller => "tasks", :action => "index"
+  # get "/tasks/:id", :controller => "tasks", :action => "show"
+  #
+  # # UPDATE
+  # get "/tasks/:id/edit", :controller => "tasks", :action => "edit"
+  # post "/update_task/:id", :controller => "tasks", :action => "update"
+  #
+  # # DELETE
+  # get "/delete_task/:id", :controller => "tasks", :action => "destroy"
   #------------------------------
 
   # Routes for the Skill resource:
   # CREATE
-  get "/skills/new", :controller => "skills", :action => "new"
-  post "/create_skill", :controller => "skills", :action => "create"
-
-  # READ
-  get "/skills", :controller => "skills", :action => "index"
-  get "/skills/:id", :controller => "skills", :action => "show"
-
-  # UPDATE
-  get "/skills/:id/edit", :controller => "skills", :action => "edit"
-  post "/update_skill/:id", :controller => "skills", :action => "update"
-
-  # DELETE
-  get "/delete_skill/:id", :controller => "skills", :action => "destroy"
+  # get "/skills/new", :controller => "skills", :action => "new"
+  # post "/create_skill", :controller => "skills", :action => "create"
+  #
+  # # READ
+  # get "/skills", :controller => "skills", :action => "index"
+  # get "/skills/:id", :controller => "skills", :action => "show"
+  #
+  # # UPDATE
+  # get "/skills/:id/edit", :controller => "skills", :action => "edit"
+  # post "/update_skill/:id", :controller => "skills", :action => "update"
+  #
+  # # DELETE
+  # get "/delete_skill/:id", :controller => "skills", :action => "destroy"
   #------------------------------
 
   # Routes for the Role resource:
   # CREATE
-  get "/roles/new", :controller => "roles", :action => "new"
-  post "/create_role", :controller => "roles", :action => "create"
-
-  # READ
-  get "/roles", :controller => "roles", :action => "index"
-  get "/roles/:id", :controller => "roles", :action => "show"
+  # get "/roles/new", :controller => "roles", :action => "new"
+  # post "/create_role", :controller => "roles", :action => "create"
+  #
+  # # READ
+  # get "/roles", :controller => "roles", :action => "index"
+  # get "/roles/:id", :controller => "roles", :action => "show"
   get "/compare", :controller => "roles", :action => "show"
   # UPDATE
-  get "/roles/:id/edit", :controller => "roles", :action => "edit"
-  post "/update_role/:id", :controller => "roles", :action => "update"
-
-  # DELETE
-  get "/delete_role/:id", :controller => "roles", :action => "destroy"
+  # get "/roles/:id/edit", :controller => "roles", :action => "edit"
+  # post "/update_role/:id", :controller => "roles", :action => "update"
+  #
+  # # DELETE
+  # get "/delete_role/:id", :controller => "roles", :action => "destroy"
   #------------------------------
 
   devise_for :users
